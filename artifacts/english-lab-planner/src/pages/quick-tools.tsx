@@ -20,7 +20,7 @@ export default function QuickTools() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div>
-        <h1 className="text-3xl font-serif font-bold text-foreground">Quick Tools</h1>
+        <h1 className="text-3xl font-bold text-foreground">Quick Tools</h1>
         <p className="text-muted-foreground mt-2">Task-based strategy finder. Select a task and WIDA level to get instant recommendations.</p>
       </div>
 
@@ -73,7 +73,7 @@ export default function QuickTools() {
 
         {/* Results Area */}
         <div className="flex-1 space-y-6">
-          <div className="bg-card rounded-xl p-6 border border-border shadow-sm">
+          <div className="bg-card rounded-lg p-6 border border-border shadow-sm">
             <div className="flex items-start justify-between mb-4">
               <div>
                 <h2 className="text-2xl font-bold text-foreground">{task.name}</h2>
@@ -88,7 +88,7 @@ export default function QuickTools() {
               <h3 className="text-sm font-bold uppercase tracking-wider text-primary mb-3">Recommended Sentence Frames</h3>
               <div className="bg-secondary/50 rounded-lg p-5 border border-border space-y-3">
                 {task.frames[selectedLevel as keyof typeof task.frames].map((frame, i) => (
-                  <div key={i} className="text-lg font-serif text-foreground font-medium bg-card p-3 rounded-md shadow-sm border border-border/50">
+                  <div key={i} className="text-lg text-foreground font-medium bg-card p-3 rounded-md shadow-sm border border-border/50">
                     {frame}
                   </div>
                 ))}

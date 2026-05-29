@@ -23,7 +23,7 @@ export default function Assessments() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div>
-        <h1 className="text-3xl font-serif font-bold text-foreground">Assessment Accommodations</h1>
+        <h1 className="text-3xl font-bold text-foreground">Assessment Accommodations</h1>
         <p className="text-muted-foreground mt-2">
           Accommodation guidelines for English Language Learners across all WIDA levels.
         </p>
@@ -83,7 +83,7 @@ export default function Assessments() {
       </div>
 
       {/* Audit Note Banner */}
-      <div className="rounded-xl border border-amber-200 bg-amber-50 p-5">
+      <div className="rounded-lg border border-amber-200 bg-amber-50 p-5">
         <p className="text-sm font-semibold text-amber-900 mb-1">Science Audit Eligibility</p>
         <p className="text-sm text-amber-800 leading-relaxed">
           Students in Intensive English (WIDA 1 and 2) are eligible to audit Science. A narrative grade or comment can be provided instead of a traditional grade. See Auditing Process guidelines for details.

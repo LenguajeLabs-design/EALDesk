@@ -47,7 +47,7 @@ export default function WidaLevels() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div>
-        <h1 className="text-3xl font-serif font-bold text-foreground">WIDA Levels</h1>
+        <h1 className="text-3xl font-bold text-foreground">WIDA Levels</h1>
         <p className="text-muted-foreground mt-2">Full strategy reference by proficiency level. Select a level to explore all strategies.</p>
       </div>
 
@@ -57,7 +57,7 @@ export default function WidaLevels() {
           <button
             key={l.level}
             onClick={() => setActiveLevel(l.level)}
-            className={`text-left p-4 rounded-xl border-2 transition-all ${
+            className={`text-left p-4 rounded-lg border-2 transition-all ${
               activeLevel === l.level
                 ? "border-primary bg-primary/5 shadow-sm"
                 : "border-border bg-card hover:border-primary/40"
@@ -73,11 +73,11 @@ export default function WidaLevels() {
       </div>
 
       {/* Level Detail */}
-      <div className={`rounded-xl bg-card border shadow-sm p-6 ${ACCENT_COLORS[activeLevel]}`}>
+      <div className={`rounded-lg bg-card border shadow-sm p-6 ${ACCENT_COLORS[activeLevel]}`}>
         <div className="flex items-start justify-between mb-4">
           <div>
             <div className="flex items-center gap-3">
-              <h2 className="text-2xl font-serif font-bold text-foreground">WIDA {level.level}: {level.name}</h2>
+              <h2 className="text-2xl font-bold text-foreground">WIDA {level.level}: {level.name}</h2>
               <Badge className={`${level.badgeColor}`}>{level.program}</Badge>
             </div>
             <p className="text-xs text-muted-foreground mt-1">{level.periods}</p>

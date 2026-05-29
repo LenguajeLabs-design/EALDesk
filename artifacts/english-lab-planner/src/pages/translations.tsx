@@ -12,7 +12,7 @@ export default function Translations() {
   return (
     <div className="space-y-10 animate-in fade-in duration-500">
       <div>
-        <h1 className="text-3xl font-serif font-bold text-foreground">Translations &amp; Tools</h1>
+        <h1 className="text-3xl font-bold text-foreground">Translations &amp; Tools</h1>
         <p className="text-muted-foreground mt-2">
           Guidelines for appropriate use of translation tools in Science class — by context, by WIDA level, and for digital translators.
         </p>
@@ -20,7 +20,7 @@ export default function Translations() {
 
       {/* Translation Use by WIDA Level */}
       <section>
-        <h2 className="text-lg font-serif font-bold text-foreground mb-4">Translation Use by WIDA Level</h2>
+        <h2 className="text-lg font-bold text-foreground mb-4">Translation Use by WIDA Level</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-4">
           {WIDA_LEVELS.map(level => (
             <Card key={level.level} className="shadow-sm">
@@ -46,7 +46,7 @@ export default function Translations() {
         <section>
           <div className="flex items-center gap-2 mb-4">
             <CheckCircle2 size={18} className="text-teal-600" />
-            <h2 className="text-lg font-serif font-bold text-foreground">When Translations ARE Appropriate</h2>
+            <h2 className="text-lg font-bold text-foreground">When Translations ARE Appropriate</h2>
           </div>
           <div className="space-y-3">
             {TRANSLATION_GUIDELINES.appropriate.map((item, i) => (
@@ -64,7 +64,7 @@ export default function Translations() {
         <section>
           <div className="flex items-center gap-2 mb-4">
             <XCircle size={18} className="text-red-500" />
-            <h2 className="text-lg font-serif font-bold text-foreground">When Translations Are NOT Appropriate</h2>
+            <h2 className="text-lg font-bold text-foreground">When Translations Are NOT Appropriate</h2>
           </div>
           <div className="space-y-3">
             {TRANSLATION_GUIDELINES.notAppropriate.map((item, i) => (
@@ -81,7 +81,7 @@ export default function Translations() {
       <section>
         <div className="flex items-center gap-2 mb-4">
           <ArrowDown size={18} className="text-primary" />
-          <h2 className="text-lg font-serif font-bold text-foreground">Scaffolding Hierarchy — Use BEFORE Translating</h2>
+          <h2 className="text-lg font-bold text-foreground">Scaffolding Hierarchy — Use BEFORE Translating</h2>
         </div>
         <div className="flex flex-col gap-2">
           {TRANSLATION_GUIDELINES.scaffoldingHierarchy.map((item, i) => (
@@ -101,7 +101,7 @@ export default function Translations() {
       {/* Digital Translator Guidelines */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <section>
-          <h2 className="text-lg font-serif font-bold text-foreground mb-4">Digital Translator — Approved Uses</h2>
+          <h2 className="text-lg font-bold text-foreground mb-4">Digital Translator — Approved Uses</h2>
           <Card className="shadow-sm">
             <CardContent className="pt-5">
               <ul className="space-y-2.5">
@@ -115,7 +115,7 @@ export default function Translations() {
             </CardContent>
           </Card>
 
-          <h2 className="text-lg font-serif font-bold text-foreground mt-6 mb-4">Not Approved</h2>
+          <h2 className="text-lg font-bold text-foreground mt-6 mb-4">Not Approved</h2>
           <Card className="shadow-sm">
             <CardContent className="pt-5">
               <ul className="space-y-2.5">
@@ -131,7 +131,7 @@ export default function Translations() {
         </section>
 
         <section>
-          <h2 className="text-lg font-serif font-bold text-foreground mb-4">Best Practices</h2>
+          <h2 className="text-lg font-bold text-foreground mb-4">Best Practices</h2>
           <div className="space-y-3">
             {TRANSLATION_GUIDELINES.digitalTranslator.bestPractices.map((bp, i) => (
               <div key={i} className="rounded-lg border bg-secondary/30 p-4">
@@ -142,7 +142,7 @@ export default function Translations() {
           </div>
 
           {/* Teacher Monitoring Checklist */}
-          <h2 className="text-lg font-serif font-bold text-foreground mt-6 mb-4">
+          <h2 className="text-lg font-bold text-foreground mt-6 mb-4">
             <CheckSquare size={18} className="inline mr-2 text-primary" />
             Teacher Monitoring Checklist
           </h2>
@@ -173,7 +173,7 @@ export default function Translations() {
         </section>
       </div>
 
-      <div className="rounded-xl border border-primary/20 bg-primary/5 p-5 text-center">
+      <div className="rounded-lg border border-primary/20 bg-primary/5 p-5 text-center">
         <p className="text-foreground font-medium text-sm italic">
           "Translations are a tool, not a solution. The goal is English language development alongside content mastery."
         </p>
