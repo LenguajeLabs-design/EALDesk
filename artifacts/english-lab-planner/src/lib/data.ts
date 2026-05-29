@@ -18,7 +18,7 @@ export const WIDA_LEVELS = [
   {
     level: 3,
     name: "Developing",
-    program: "English Lab",
+    program: "EALDesk Core Support",
     periods: "4 periods/week",
     description: "Beginning to organize their thinking and can explain simple ideas. May struggle with complex sentence structures and technical vocabulary, but ready to try more challenging tasks with support.",
     badgeColor: "bg-teal-100 text-teal-800 border-teal-200",
@@ -26,7 +26,7 @@ export const WIDA_LEVELS = [
   {
     level: 4,
     name: "Expanding",
-    program: "Exiting English Lab",
+    program: "Transitioning Beyond EALDesk",
     periods: "Exit at WIDA 4 (Gr 6-8) or 4.5 (Gr 9-10)",
     description: "Can organize multi-paragraph explanations and use more complex sentence structures. Ready to support claims with evidence and engage in more sophisticated discussions. Can handle technical vocabulary and approaching grade-level expectations.",
     badgeColor: "bg-indigo-100 text-indigo-800 border-indigo-200",

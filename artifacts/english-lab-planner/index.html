@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1" />
-    <title>English Lab Planner</title>
+    <title>EALDesk</title>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,6 +11,27 @@
   </head>
   <body>
     <div id="root"></div>
+    <script>
+      (function restoreGitHubPagesRoute() {
+        const url = new URL(window.location.href);
+        const redirectPath = url.searchParams.get("p");
+
+        if (!redirectPath) {
+          return;
+        }
+
+        url.searchParams.delete("p");
+        const basePath = window.location.pathname.replace(/\/$/, "");
+        const search = url.searchParams.toString();
+        const nextUrl =
+          basePath +
+          redirectPath +
+          (search ? `?${search}` : "") +
+          url.hash;
+
+        window.history.replaceState(null, "", nextUrl);
+      })();
+    </script>
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

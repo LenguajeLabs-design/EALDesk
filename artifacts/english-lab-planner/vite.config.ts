@@ -4,15 +4,41 @@ import tailwindcss from "@tailwindcss/vite";
 import path from "path";
 import runtimeErrorOverlay from "@replit/vite-plugin-runtime-error-modal";
 
-const rawPort = process.env.PORT ?? "19934";
+function parsePort(rawPort: string | undefined): number {
+  const port = Number(rawPort ?? "5173");
 
-const port = Number(rawPort);
+  if (Number.isNaN(port) || port <= 0) {
+    throw new Error(`Invalid PORT value: "${rawPort}"`);
+  }
 
-if (Number.isNaN(port) || port <= 0) {
-  throw new Error(`Invalid PORT value: "${rawPort}"`);
+  return port;
 }
 
-const basePath = process.env.BASE_PATH ?? "/";
+function normalizeBasePath(basePath: string): string {
+  if (!basePath.startsWith("/")) {
+    throw new Error(`BASE_PATH must start with "/". Received "${basePath}".`);
+  }
+
+  return basePath.endsWith("/") ? basePath : `${basePath}/`;
+}
+
+function resolveBasePath(): string {
+  if (process.env.BASE_PATH) {
+    return normalizeBasePath(process.env.BASE_PATH);
+  }
+
+  const repositoryName =
+    process.env.GITHUB_REPOSITORY?.split("/")[1] ?? "EALDesk";
+
+  if (process.env.GITHUB_ACTIONS === "true") {
+    return `/${repositoryName}/`;
+  }
+
+  return "/";
+}
+
+const port = parsePort(process.env.PORT);
+const basePath = resolveBasePath();
 
 export default defineConfig({
   base: basePath,

@@ -1,98 +1,110 @@
 import React from "react";
 import { Link, useLocation } from "wouter";
 import {
-  BarChart3,
-  BookOpen,
-  ClipboardList,
-  Globe2,
-  Home,
-  Sparkles,
-  Zap,
+  Home, Zap, BookOpen, BarChart3, ClipboardList, Globe2, Search, Sparkles,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const NAV_ITEMS = [
   { href: "/", label: "Home", icon: Home },
   { href: "/quick-tools", label: "Quick Tools", icon: Zap },
-  { href: "/strategies", label: "Strategies", icon: BookOpen },
+  { href: "/strategies", label: "Strategies by Skill", icon: BookOpen },
   { href: "/wida-levels", label: "WIDA Levels", icon: BarChart3 },
   { href: "/assessments", label: "Assessments", icon: ClipboardList },
-  { href: "/translations", label: "Translations", icon: Globe2 },
+  { href: "/translations", label: "Translations & Tools", icon: Globe2 },
 ];
 
-function BrandMark() {
+export function TopBar() {
   return (
-    <div className="grid h-9 w-9 place-items-center rounded-lg bg-slate-950 text-white shadow-sm">
-      <Sparkles className="h-4 w-4" strokeWidth={2.4} />
+    <header className="h-14 bg-gradient-to-r from-cyan-700 via-sky-700 to-blue-900 text-white flex items-center px-6 gap-4 shadow-sm flex-shrink-0">
+      <div className="h-9 w-9 rounded-xl bg-white/12 border border-white/15 grid place-items-center shadow-inner">
+        <Sparkles className="h-4.5 w-4.5" />
+      </div>
+      <div>
+        <div className="text-sm font-semibold tracking-wide uppercase text-white/70">
+          Lenguaje Labs
+        </div>
+        <div className="font-semibold text-base leading-none">EALDesk</div>
+      </div>
+      <div className="mx-auto max-w-xl flex-1 hidden md:block">
+        <div className="bg-white/95 rounded-md text-slate-500 px-4 py-1.5 flex items-center gap-2">
+          <Search className="h-4 w-4 flex-shrink-0" />
+          <span className="text-sm">Search supports, levels, and tools</span>
+        </div>
+      </div>
+      <div className="ml-auto hidden md:flex items-center gap-3 text-xs font-medium text-white/80">
+        <span className="rounded-full border border-white/20 px-3 py-1">
+          Teacher Resource
+        </span>
+      </div>
+    </header>
+  );
+}
+
+export function SiteHeader() {
+  return (
+    <div className="bg-white border-b border-slate-200 px-8 py-5 flex items-center justify-between flex-shrink-0">
+      <div className="flex items-center gap-5">
+        <div className="h-14 w-14 rounded-md bg-blue-950 text-white flex items-center justify-center text-2xl font-bold shadow-sm lg:hidden">ED</div>
+        <div>
+          <h1 className="text-2xl font-bold text-blue-950">EALDesk</h1>
+          <p className="text-slate-500 text-sm mt-0.5">
+            Practical language supports for multilingual learners
+          </p>
+        </div>
+      </div>
+      <div className="hidden md:flex items-center gap-5 text-blue-800 text-sm font-medium">
+        <span>Classroom-ready guidance</span>
+        <span>WIDA-aligned supports</span>
+      </div>
     </div>
   );
 }
 
-export function AppLayout({ children }: { children: React.ReactNode }) {
+export function SideBar() {
   const [location] = useLocation();
-
   return (
-    <div className="min-h-screen bg-[#f5f5f7] text-slate-950">
-      <header className="sticky top-0 z-40 border-b border-black/[0.07] bg-white/80 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl items-center gap-4 px-4 py-3 sm:px-6 lg:px-8">
-          <Link href="/" className="flex min-w-0 items-center gap-3">
-            <BrandMark />
-            <div className="min-w-0">
-              <div className="truncate text-sm font-semibold tracking-tight text-slate-950">
-                English Lab Planner
-              </div>
-              <div className="truncate text-xs text-slate-500">
-                Fast supports for content planning
-              </div>
-            </div>
-          </Link>
+    <aside className="w-56 border-r border-slate-200 bg-white/90 hidden lg:flex flex-col flex-shrink-0">
+      <div className="p-6">
+        <div className="h-14 w-14 rounded-md bg-blue-950 text-white flex items-center justify-center text-2xl font-bold shadow-sm">ED</div>
+      </div>
+      <nav className="px-3 space-y-0.5 flex-1">
+        {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
+          const isActive = location === href;
+          return (
+            <Link
+              key={href}
+              href={href}
+              className={cn(
+                "flex items-center gap-3 rounded-md px-3 py-2.5 text-sm transition-colors",
+                isActive
+                  ? "bg-blue-50 text-blue-950 border-l-4 border-blue-600 font-semibold"
+                  : "text-slate-700 hover:bg-slate-50 border-l-4 border-transparent"
+              )}
+            >
+              <Icon className="h-4 w-4 flex-shrink-0" />
+              <span>{label}</span>
+            </Link>
+          );
+        })}
+      </nav>
+    </aside>
+  );
+}
 
-          <nav className="ml-auto hidden items-center gap-1 lg:flex">
-            {NAV_ITEMS.map(({ href, label, icon: Icon }) => {
-              const isActive = location === href;
-              return (
-                <Link
-                  key={href}
-                  href={href}
-                  className={cn(
-                    "inline-flex h-9 items-center gap-2 rounded-lg px-3 text-sm font-medium transition-colors",
-                    isActive
-                      ? "bg-slate-950 text-white"
-                      : "text-slate-600 hover:bg-black/[0.04] hover:text-slate-950",
-                  )}
-                >
-                  <Icon className="h-4 w-4" />
-                  {label}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-
-        <nav className="flex gap-2 overflow-x-auto px-4 pb-3 sm:px-6 lg:hidden">
-          {NAV_ITEMS.map(({ href, label }) => {
-            const isActive = location === href;
-            return (
-              <Link
-                key={href}
-                href={href}
-                className={cn(
-                  "whitespace-nowrap rounded-lg px-3 py-2 text-sm font-medium transition-colors",
-                  isActive
-                    ? "bg-slate-950 text-white"
-                    : "bg-white text-slate-600 ring-1 ring-black/[0.08]",
-                )}
-              >
-                {label}
-              </Link>
-            );
-          })}
-        </nav>
-      </header>
-
-      <main className="mx-auto min-h-[calc(100vh-64px)] max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
-        {children}
-      </main>
+export function AppLayout({ children }: { children: React.ReactNode }) {
+  return (
+    <div className="min-h-screen bg-slate-50 text-slate-900 flex flex-col">
+      <TopBar />
+      <SiteHeader />
+      <div className="flex flex-1 overflow-hidden">
+        <SideBar />
+        <main className="flex-1 overflow-y-auto px-5 md:px-10 xl:px-14 py-2 pb-16">
+          <div className="max-w-7xl mx-auto">
+            {children}
+          </div>
+        </main>
+      </div>
     </div>
   );
 }

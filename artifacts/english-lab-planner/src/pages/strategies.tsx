@@ -27,7 +27,7 @@ function StrategyList({ items }: { items: string[] }) {
 
 function LevelColumn({ level }: { level: typeof WIDA_LEVELS[0] }) {
   return (
-    <div className={`rounded-lg border p-5 space-y-2 ${LEVEL_COLORS[level.level]}`}>
+    <div className={`rounded-xl border p-5 space-y-2 ${LEVEL_COLORS[level.level]}`}>
       <div className="flex items-center justify-between mb-1">
         <span className="font-bold text-base text-foreground">WIDA {level.level}</span>
         <Badge className={`${level.badgeColor} text-xs`}>{level.name}</Badge>
@@ -41,12 +41,12 @@ export default function Strategies() {
   return (
     <div className="space-y-8 animate-in fade-in duration-500">
       <div>
-        <h1 className="text-3xl font-bold text-foreground">Strategies by Skill</h1>
+        <h1 className="text-3xl font-serif font-bold text-foreground">Strategies by Skill</h1>
         <p className="text-muted-foreground mt-2">Browse strategies across all WIDA levels, organized by skill area.</p>
       </div>
 
       <Tabs defaultValue="writing" className="w-full">
-        <TabsList className="flex flex-wrap gap-1 h-auto bg-secondary/50 p-1 rounded-lg">
+        <TabsList className="flex flex-wrap gap-1 h-auto bg-secondary/50 p-1 rounded-xl">
           <TabsTrigger value="writing" className="flex items-center gap-2 rounded-lg">
             <Edit3 size={15} /> Writing
           </TabsTrigger>
