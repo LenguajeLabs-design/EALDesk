@@ -1,0 +1,31 @@
+kind = "web"
+previewPath = "/"
+title = "English Lab Planner"
+version = "1.0.0"
+id = "artifacts/english-lab-planner"
+router = "path"
+
+[[integratedSkills]]
+name = "react-vite"
+version = "1.0.0"
+
+[[services]]
+name = "web"
+paths = [ "/" ]
+localPort = 19934
+
+[services.development]
+run = "pnpm --filter @workspace/english-lab-planner run dev"
+
+[services.production]
+build = [ "pnpm", "--filter", "@workspace/english-lab-planner", "run", "build" ]
+publicDir = "artifacts/english-lab-planner/dist/public"
+serve = "static"
+
+[[services.production.rewrites]]
+from = "/*"
+to = "/index.html"
+
+[services.env]
+PORT = "19934"
+BASE_PATH = "/"
