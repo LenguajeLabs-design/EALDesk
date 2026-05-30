@@ -278,7 +278,12 @@ export default function Home() {
       </div>
 
       <footer className="mt-12 py-8 text-xs text-slate-400 border-t border-slate-200 space-y-1">
-        <p>Contact: LenguajeLabs@proton.me</p>
+        <p>
+          Contact:{" "}
+          <a className="text-blue-700 hover:underline" href="mailto:LenguajeLabs@proton.me">
+            LenguajeLabs@proton.me
+          </a>
+        </p>
         <p>Built around the WIDA framework to support multilingual learners and the teachers who serve them.</p>
         <p>Version 1.0 &nbsp;|&nbsp; Updated May 2026</p>
       </footer>
